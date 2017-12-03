@@ -13,6 +13,10 @@
               <button ion-button (click)="showPrompt()">ShowPrompt</button>
               <button ion-button (click)="showPrompt()">ShowPrompt</button>
               <button ion-button (click)="showConfirm()">ShowConfirm</button>
-              
+              <ion-list>
+                <button ion-item *ngFor="let p of favoritesList" (click)="displayUri(p)">
+                  {{p.name}}
+                </button>
+              </ion-list>
       </ion-content>
       

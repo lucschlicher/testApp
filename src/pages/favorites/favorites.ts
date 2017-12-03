@@ -7,9 +7,12 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'favorites.html'
 })
 export class FavoritesPage {
+  favoritesList: Array<{code:string,name:string,uri:string}>;
 
   constructor(public navCtrl: AlertController) {
-
+      this.favoritesList=[];
+      this.favoritesList.push({code:'C1',name:'google',uri:'http://www.google.fr'});
+      this.favoritesList.push({code:'C2',name:'Yahoooo',uri:'http://www.yahoo.fr'});      
   }
 
 
@@ -18,6 +21,15 @@ export class FavoritesPage {
       title: 'New Friend!',
       subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
       buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  displayUri(favorite:{code:string,name:string,uri:string}) {
+    let alert = this.navCtrl.create({
+      title: favorite.name,
+      subTitle: favorite.uri,
+      buttons: [favorite.code]
     });
     alert.present();
   }
